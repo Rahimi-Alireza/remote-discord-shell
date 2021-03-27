@@ -20,4 +20,9 @@ async def on_message(message):
         #if the message was written by bot
         return
     
-    
+    if message.content.startswith("run"):
+        response = os.system(message.content[3:])
+        #the command is after "run "
+        await message.channel.send(response)
+
+client.run(TOKEN)
